@@ -67,7 +67,6 @@ router.get("/remove-user/:id",async(req,res)=>{
 })
 router.post("/add-comment",async(req,res)=>{
       try{
-            console.log(req.body);
              let comment = new Comments(req.body);
              comment.date = moment().format("L");
              comment = await comment.save();

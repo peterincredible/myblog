@@ -17,7 +17,7 @@ let schema = new Schema({
     },
     date:{
         type:String,
-        default:" "
+        default:""
     }
     
 })

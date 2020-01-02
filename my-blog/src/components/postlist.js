@@ -29,14 +29,14 @@ async componentWillUnmount(){
     render(){
         return (
                this.state.posts.map((data)=>(
-                <div className="row well remove-padding" key={`${data._id}`} style={{marginTop:"10px"}}>
+                <div className="row well remove-padding" key={`${data._id}`} style={{marginTop:"10px",marginBottom:"10px"}}>
                      <div className="col-sm-6 remove-padding">
                     
                      <img src={`/images/${data._id}/${data.image}`} className="img-responsive" style={{width:"100%",height:"200px"}}/>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-sm-6" style={{paddingBottom:"10px"}}>
                          <h3>{data.title}</h3>
-                         <p>{data.user.username} {data.date}</p>
+                         <p>{data.user && data.user.username} {data.date}</p>
                            <NavLink className="btn btn-primary" to={`/postdetails/${data._id}`}>Read More</NavLink>
                     </div>
                 </div>

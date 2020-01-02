@@ -108,27 +108,27 @@ class Postdetails extends React.Component{
     render(){
         return(
                 <div className="container-fluid flex-container">
-                    <div className="row">
-                        <div className="col-sm-12">
+                    <div className="row flex-header">
+                        <div className="col-sm-12" style={{paddingLeft:0,paddingRight:0}}>
                             <Header/>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-sm-8 col-sm-offset-2">
+                    <div className="row flex-body">
+                        <div className="col-sm-8 col-sm-offset-2" style={{paddingLeft:0,paddingRight:0}}>
                             <div className="row">
                                 <div className="col-sm-10 col-sm-offset-1">
                                      <h1 style={{textAlign:"center"}}>{this.state.post.title}</h1>
-                                     <p style={{textAlign:"center"}}>{this.state.post.user.username} {this.state.post.date}</p>
+                                     <p style={{textAlign:"center"}}>{this.state.post.user && this.state.post.user.username} {this.state.post.date}</p>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-6 col-sm-offset-3" >
-                                    <img src={`/images/${this.state.post.id}/${this.state.post.image}`} className="img-responsive"style={{width:"100%",height:"400px"}} />
+                                    <img src={`/images/${this.state.post.id}/${this.state.post.image}`} className="img-responsive"style={{width:"100%",height:"200px"}} />
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-sm-10 col-sm-offset-1">
-                                   <p>{this.state.post.content}</p>
+                                <div className="col-sm-10 col-sm-offset-1" style={{paddingLeft:0,paddingRight:0}}>
+                                   <p className="text-justify">{this.state.post.content}</p>
                                 </div>
                             </div>
                             <div className="row">

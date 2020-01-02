@@ -56,12 +56,20 @@ body,html,#root{
     display:flex;
     flex-direction: column;
     height:100%;
+    overflow-y:auto;
 }
 .flex-item{
 
 }
+.flex-header{
+ 
+}
+.flex-body{
+    
+}
 .flex-footer{
     margin-top:auto;
+  
 }
 .remove-padding{
     padding:0;

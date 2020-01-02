@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let bcrypt = require("bcrypt");
+let bcrypt = require("bcryptjs");
 let Schema = mongoose.Schema;
 let userSchema = new Schema({
     name:{
@@ -33,7 +33,7 @@ let userSchema = new Schema({
     }
 });
 userSchema.pre("save",function(){
-    let salt = 10;
+    let salt = bcrypt.genSaltSync(10);
     this.password = bcrypt.hashSync(this.password,salt);
 })
 userSchema.methods.passwordMatch = function(password){
