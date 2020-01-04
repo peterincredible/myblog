@@ -1,7 +1,7 @@
 let jwt_decode = require("jwt-decode");
 let User = require("./db/user_db");
 async function authorization(req,res,next){
-  // console.log(req.headers["authorization"])
+
     try{
       let admin = jwt_decode(req.headers["authorization"]);
       let user = await User.findOne({username:admin.username});

@@ -71,9 +71,46 @@ body,html,#root{
     margin-top:auto;
   
 }
-.remove-padding{
-    padding:0;
+.rm-padding-lr{
+    padding-left:0;
+    padding-right:0;
+}
+.rm-padding-tb{
+    padding-top:0;
+    padding-bottom:0;
+}
+.rm-margin-lr{
+    margin-left:0;
+    margin-right:0;
+}
+.rm-margin-tb{
+    margin-top:0;
+    margin-bottom:0;
 }
 .text-center{
     text-align: center;
 }
+.btn-margin{
+    margin-left:10px;
+ 
+}
+.mk-inline-block{
+    display: inline-block;
+}
+
+
+
+
+.ql-editor{
+    /*overflow-y: auto !important;*/
+    min-height:300px;
+    overflow-y: auto !important;
+
+
+}
+#mydisplay img{
+    display:inline-block;
+    width:100%;
+}
+
+  

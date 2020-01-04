@@ -12,8 +12,9 @@ import Signin from "./components/signin";
 import Signup from "./components/signup";
 import Privateroute  from "./components/private";
 import Addpost  from "./components/addpost";
-import {Postimage}  from "./components/postimage";
+import Postimage  from "./components/postimage";
 import Postdetail from "./components/postdetail";
+import Editpost from "./components/editpost";
 function App(props) {  
   return (
     <Router>
@@ -23,8 +24,8 @@ function App(props) {
                     <Route path="/signup" component={Signup}/>
                     <Route path="/signin" component={Signin}/>
                     <Route path="/postimage/:id" component={Postimage}/>
-                 
                   <Privateroute path="/addpost" component={Addpost}/>
+                  <Privateroute path="/editpost/:id" component={Editpost}/>
                   <Route path="/postdetails/:id" component={Postdetail}/>
                 </Switch>            
     </Router>

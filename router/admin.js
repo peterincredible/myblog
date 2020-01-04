@@ -14,11 +14,21 @@ let storage = multer.diskStorage({
 let upload = multer({storage});
 let fs = require('fs-extra');
 router.get("/get-post/:id",async(req,res)=>{
+  console.log(req.params.id)
   try{
       post = await Post.findById(req.params.id).populate("user");
          res.send({post});
   }catch(err){
     console.log("an error occured getting all post");
+  }
+});
+router.post("/edit-post/:id",async(req,res)=>{
+  console.log(req.params.id)
+  try{
+      post = await Post.findByIdAndUpdate(req.params.id,{...req.body});
+         res.send({message:"edited successfully"});
+  }catch(err){
+    console.log("an error occured edit post");
   }
 });
 router.get("/all-post",async(req,res)=>{
@@ -49,6 +59,7 @@ router.post("/add-post-image/:id",authorization,upload.single("file"),async(req,
          let post = await Post.findById(req.params.id);
           post.image = req.file.filename;
           await post.save();
+          await fs.emptyDir(`public/images/${req.params.id}`)
          await fs.move(`uploads/${req.file.filename}`,`public/images/${req.params.id}/${req.file.filename}`);
          res.send("success");
     

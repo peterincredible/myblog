@@ -29,8 +29,8 @@ async componentWillUnmount(){
     render(){
         return (
                this.state.posts.map((data)=>(
-                <div className="row well remove-padding" key={`${data._id}`} style={{marginTop:"10px",marginBottom:"10px"}}>
-                     <div className="col-sm-6 remove-padding">
+                <div className="row well rm-padding-tb rm-padding-lr" key={`${data._id}`} style={{marginBottom:"10px"}}>
+                     <div className="col-sm-6 rm-padding-lr">
                     
                      <img src={`/images/${data._id}/${data.image}`} className="img-responsive" style={{width:"100%",height:"200px"}}/>
                     </div>

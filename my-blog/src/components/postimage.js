@@ -2,8 +2,10 @@ import React from "react";
 import axios from "axios";
 import Header from "./header";
 import  FormData from  "form-data";
+import {withRouter, NavLink} from "react-router-dom";
+import Footer from "./footer";
 
-export class Postimage extends React.Component{
+ class Postimage extends React.Component{
     constructor(props){
         super(props);
         this.state ={
@@ -41,7 +43,7 @@ export class Postimage extends React.Component{
 
     render(){
         return(
-            <div className="container-fluid">
+            <div className="container-fluid flex-container">
                 <div className="row">
                     <div className="col-md-12">
                         <Header/>
@@ -51,7 +53,7 @@ export class Postimage extends React.Component{
                     <div className="col-sm-4 col-sm-offset-4">
                         <form method="post" action="#" id="#" onSubmit={this.mysubmit}>
                             <div className="form-group files">
-                                <label>Upload Your File </label>
+                                <label>Upload Your File   <NavLink to={"/"} className="btn btn-primary"> Back to Home</NavLink> </label>
                                 <input type="file" className="form-control" onChange={this.filechanged} name="file"/>
                              </div>
                              <div className="form-group">
@@ -60,8 +62,15 @@ export class Postimage extends React.Component{
                         </form>
                     </div>
                 </div>
+                <div className="row flex-footer rm-margin-lr">
+                    <div className="col-md-12 rm-padding-lr">
+                        <Footer/>
+                    </div>
+                 </div>
             </div>
 
         )
     }
 }
+
+export default withRouter(Postimage);

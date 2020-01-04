@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 import Comments from "./comment";
 import Footer from "./footer"
 import { runInThisContext } from "vm";
+import { NavLink,withRouter } from "react-router-dom";
 
 class Postdetails extends React.Component{
     constructor(props){
@@ -117,18 +118,22 @@ class Postdetails extends React.Component{
                         <div className="col-sm-8 col-sm-offset-2" style={{paddingLeft:0,paddingRight:0}}>
                             <div className="row">
                                 <div className="col-sm-10 col-sm-offset-1">
-                                     <h1 style={{textAlign:"center"}}>{this.state.post.title}</h1>
-                                     <p style={{textAlign:"center"}}>{this.state.post.user && this.state.post.user.username} {this.state.post.date}</p>
+                                     <h1 className="text-center">{this.state.post.title}</h1>
+                                     <p className="text-center"> {this.state.post.user && this.state.post.user.username} {this.state.post.date}</p>
+                                     <div className="text-center" style={{marginBottom:"10px"}}>
+                                         <NavLink to ={`/editpost/${this.props.match.params.id}`} className="btn btn-primary btn-md mk-inline-block" >Edit</NavLink>
+                                         <button className="btn btn-danger btn-md btn-margin">Delete</button>
+                                    </div>
+                                     
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-sm-6 col-sm-offset-3" >
+                                <div className="col-sm-10 col-sm-offset-1 " >
                                     <img src={`/images/${this.state.post.id}/${this.state.post.image}`} className="img-responsive"style={{width:"100%",height:"200px"}} />
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-sm-10 col-sm-offset-1" style={{paddingLeft:0,paddingRight:0}}>
-                                   <p className="text-justify">{this.state.post.content}</p>
+                                <div className="col-sm-10 col-sm-offset-1" dangerouslySetInnerHTML={{__html:this.state.post.content}} id="mydisplay">
                                 </div>
                             </div>
                             <div className="row">
@@ -164,4 +169,4 @@ class Postdetails extends React.Component{
         )
     }
 }
-export default Postdetails;
+export default withRouter(Postdetails);
