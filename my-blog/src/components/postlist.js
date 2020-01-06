@@ -32,7 +32,7 @@ async componentWillUnmount(){
                 <div className="row well rm-padding-tb rm-padding-lr" key={`${data._id}`} style={{marginBottom:"10px"}}>
                      <div className="col-sm-6 rm-padding-lr">
                     
-                     <img src={`/images/${data._id}/${data.image}`} className="img-responsive" style={{width:"100%",height:"200px"}}/>
+                     <img src={data.image} className="img-responsive listing-img" />
                     </div>
                     <div className="col-sm-6" style={{paddingBottom:"10px"}}>
                          <h3>{data.title}</h3>

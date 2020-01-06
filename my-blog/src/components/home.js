@@ -20,8 +20,8 @@ import Postlist from "./postlist";
  render(){
        return (
            <div className="container-fluid flex-container">
-              <div className="row">
-                  <div className="col-sm-12">
+              <div className="row rm-padding-lr">
+                  <div className="col-sm-12 rm-padding-lr">
                      <Header/>
                   </div>
               </div>
@@ -30,7 +30,7 @@ import Postlist from "./postlist";
                       <Postlist/>
                 </div>
               </div>
-              <div className="row flex-footer" style={{padding:"0"}}>
+              <div className="row flex-footer rm-padding-lr">
                            <Footer/>
                     </div>
              </div>   

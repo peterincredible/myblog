@@ -25,6 +25,7 @@ class Postdetails extends React.Component{
             comments:[],
             comment_count:0
         }
+        this.deletepost = this.deletepost.bind(this);
         this.submit = this.submit.bind(this);
         this.flattonest = this.flattonest.bind(this);
         this.update_comment = this.update_comment.bind(this);
@@ -61,6 +62,14 @@ class Postdetails extends React.Component{
     });
   }
   //this is the component did mount function defination start
+  async deletepost(){
+      try{
+           await axios.get(`/admin/api/delete-post/${this.props.match.params.id}`);
+           this.props.history.push("/");
+      }catch(err){
+          console.log("there was an error deleting this post");
+      }
+  }
     async componentDidMount(){
         try{
             
@@ -115,21 +124,21 @@ class Postdetails extends React.Component{
                         </div>
                     </div>
                     <div className="row flex-body">
-                        <div className="col-sm-8 col-sm-offset-2" style={{paddingLeft:0,paddingRight:0}}>
+                        <div className="col-sm-8 col-sm-offset-2 rm-padding-lr" >
                             <div className="row">
                                 <div className="col-sm-10 col-sm-offset-1">
                                      <h1 className="text-center">{this.state.post.title}</h1>
                                      <p className="text-center"> {this.state.post.user && this.state.post.user.username} {this.state.post.date}</p>
-                                     <div className="text-center" style={{marginBottom:"10px"}}>
+                                     {this.state.user && this.state.user.role == "admin"&&<div className="text-center" style={{marginBottom:"10px"}}>
                                          <NavLink to ={`/editpost/${this.props.match.params.id}`} className="btn btn-primary btn-md mk-inline-block" >Edit</NavLink>
-                                         <button className="btn btn-danger btn-md btn-margin">Delete</button>
-                                    </div>
+                                         <button className="btn btn-danger btn-md btn-margin" onClick={this.deletepost}>Delete</button>
+                                    </div>}
                                      
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-10 col-sm-offset-1 " >
-                                    <img src={`/images/${this.state.post.id}/${this.state.post.image}`} className="img-responsive"style={{width:"100%",height:"200px"}} />
+                                    <img src={this.state.post.image} className="img-responsive detail-img" />
                                 </div>
                             </div>
                             <div className="row">
@@ -161,7 +170,7 @@ class Postdetails extends React.Component{
                              
                         </div>
                     </div>
-                    <div className="row flex-footer" style={{padding:"0"}}>
+                    <div className="row flex-footer rm-padding-lr">
                            <Footer/>
                     </div>
 

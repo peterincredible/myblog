@@ -45,7 +45,7 @@ import Footer from "./footer";
         return(
             <div className="container-fluid flex-container">
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 rm-padding-lr">
                         <Header/>
                     </div>
                 </div>

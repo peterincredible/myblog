@@ -11,6 +11,9 @@ let schema = new Schema({
     image:{
         type:String
     },
+    image_id:{
+        type:String
+    },
     content:{
         type:String,
         required:true
